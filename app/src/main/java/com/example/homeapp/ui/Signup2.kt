@@ -44,7 +44,7 @@ class Signup2 : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
         val emailText = intent.getStringExtra("email").toString()
-        val password = binding.password
+        val password = binding.passwordText
 
 
 //        fun isValidPassword(password : String) : Boolean {

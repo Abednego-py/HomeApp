@@ -48,7 +48,10 @@ class SignUp : AppCompatActivity() {
         fun isValidString(str: String): Boolean{
             return EMAIL_ADDRESS_PATTERN.matcher(str).matches()
         }
-        val email = binding.root.email
+        val email = binding.root.emailtext
+        val firstName = binding.root.firstnametext
+        val lastName = binding.root.lastnametext
+
         binding.root.next.setOnClickListener {
 
             if (isValidString(email.text.toString())) {
@@ -56,7 +59,7 @@ class SignUp : AppCompatActivity() {
                 email.hint = "Please enter a valid email"
             } else {
                 val intent = Intent(this, Signup2::class.java)
-                intent.putExtra("email", binding.root.email.text.toString())
+                intent.putExtra("email", email.text.toString())
                 startActivity(intent)
             }
         }

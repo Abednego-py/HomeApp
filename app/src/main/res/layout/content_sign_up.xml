@@ -8,21 +8,32 @@
 
     <Spinner
         android:id="@+id/gender"
-        android:layout_width="315dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="41dp"
+        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+        android:layout_width="317dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
         android:background="@android:drawable/btn_dropdown"
-        android:backgroundTint="#FEFEFE"
-        android:fadeScrollbars="false"
-        android:fadingEdge="vertical"
-        android:foregroundTint="#1C1B1B"
-        android:gravity="center"
         android:spinnerMode="dropdown"
-        app:guidelineUseRtl="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastname" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/spinner_image"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="39dp"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="11dp"-->
+<!--        android:layout_marginEnd="72dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:src="@drawable/ic_baseline_arrow_drop_down_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/gender"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/gender"-->
+<!--        app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />-->
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
@@ -46,73 +57,94 @@
             android:layout_gravity="center_horizontal|center_vertical"
             android:backgroundTint="#673AB7"
             android:paddingTop="32dp"
-            android:text="Create Account"
+            android:text="@string/create_account"
             android:textAlignment="center"
             android:textColor="#101010"
             android:textSize="20sp"
             app:lineHeight="30sp" />
     </com.google.android.material.card.MaterialCardView>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/firstname"
         android:layout_width="317dp"
         android:layout_height="55dp"
         android:layout_marginTop="68dp"
-        android:editable="true"
-        android:gravity="center"
-        android:hint="firstname"
-        android:inputType="text"
-        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/first_name"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstnametext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lastname"
         android:layout_width="317dp"
         android:layout_height="55dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:hint="lastname"
-        android:inputType="text"
-        android:selectAllOnFocus="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstname" />
+        android:layout_marginTop="48dp"
+        android:hint="@string/last_name"
+        app:layout_constraintTop_toBottomOf="@+id/firstname">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastnametext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+           />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
         android:layout_width="317dp"
         android:layout_height="55dp"
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender" />
+        android:layout_marginTop="48dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/gender">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/next"
         android:layout_width="323dp"
         android:layout_height="59dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="#0B0A0A"
         android:gravity="center|center_horizontal"
         android:text="Next"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <ImageView
         android:id="@+id/backbutton"
-        android:layout_width="52dp"
-        android:layout_height="26dp"
+        android:layout_width="28dp"
+        android:layout_height="45dp"
         android:layout_marginTop="28dp"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
