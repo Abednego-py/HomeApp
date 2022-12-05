@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.homeapp.R
+import com.example.homeapp.databinding.FragmentProfileBinding
+
+//import kotlinx.android.synthetic.main.content_sign_up.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +25,11 @@ class Profile_Fragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var _binding: FragmentProfileBinding? = null
+
+    private val binding get() = _binding!!
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,6 +44,24 @@ class Profile_Fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile_, container, false)
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        _binding = FragmentProfileBinding.bind(view)
+
+        val paths = arrayOf("male", "female")
+//        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
+//            this@Profile_Fragment,
+//            android.R.layout.simple_spinner_item, paths
+//        )
+//
+//
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//         binding.gender.adapter = adapter
     }
 
     companion object {

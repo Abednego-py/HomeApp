@@ -8,16 +8,19 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homeapp.databinding.ActivitySignUpBinding
+import com.example.homeapp.databinding.ContentSignUpBinding
 import com.example.homeapp.databinding.Signup2Binding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.content_sign_up.view.*
+
+//import kotlinx.android.synthetic.main.content_sign_up.view.*
 
 class Signup2 : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: Signup2Binding
-    private lateinit var binding2 : ActivitySignUpBinding
+    private lateinit var binding3: ContentSignUpBinding
+    private lateinit var binding2: ActivitySignUpBinding
     private val TAG = "Signup2"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +40,7 @@ class Signup2 : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.accounttype.adapter = adapter
 
-        binding.root.backbutton.setOnClickListener {
+        binding.backbutton.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
@@ -66,21 +69,21 @@ class Signup2 : AppCompatActivity() {
         }
 
         binding.button.setOnClickListener {
-            if (isValidPassword(password.text.toString())) {
-                password.error = "Password is required"
-                password.hint = "The password must be at least 8 characters long and include a number, " +
-                        "lowercase letter, uppercase letter and special character"
-            } else {
-                auth.createUserWithEmailAndPassword(emailText, password.text.toString())
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success")
-                            val intent = Intent(this, LoginSuccessful::class.java)
-                            startActivity(intent)
-                            val user = auth.currentUser
+//            if (isValidPassword(password.text.toString())) {
+//                password.error = "Password is required"
+//                password.hint = "The password must be at least 8 characters long and include a number, " +
+//                        "lowercase letter, uppercase letter and special character"
+//            } else {
+            auth.createUserWithEmailAndPassword(emailText, password.text.toString())
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
+                        val intent = Intent(this, LoginSuccessful::class.java)
+                        startActivity(intent)
+                        val user = auth.currentUser
 //                    updateUI(user)
-                        } else {
+                    } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
                             Toast.makeText(
@@ -90,7 +93,7 @@ class Signup2 : AppCompatActivity() {
 //                    updateUI(null)
                         }
                     }
-            }
+//            }
         }
     }
 

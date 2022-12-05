@@ -6,8 +6,9 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import com.example.homeapp.databinding.ActivitySignUpBinding
-import com.example.homeapp.ui.homepage.HomeActivity
-import kotlinx.android.synthetic.main.content_sign_up.view.*
+import com.example.homeapp.databinding.ContentSignUpBinding
+import com.example.homeapp.ui.login.homepage.HomeActivity
+//import kotlinx.android.synthetic.main.content_sign_up.view.*
 import java.util.regex.Pattern
 
 
@@ -15,6 +16,7 @@ class SignUp : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivitySignUpBinding
+    private lateinit var binding2: ContentSignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class SignUp : AppCompatActivity() {
 
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.root.gender.adapter = adapter
+        binding2.gender.adapter = adapter
 
 //        fun isValidEmail(email: String)  : Boolean{
 //            val pattern = Patterns.EMAIL_ADDRESS;
@@ -45,26 +47,28 @@ class SignUp : AppCompatActivity() {
                     "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                     ")+"
         )
-        fun isValidString(str: String): Boolean{
+
+        fun isValidString(str: String): Boolean {
             return EMAIL_ADDRESS_PATTERN.matcher(str).matches()
         }
-        val email = binding.root.emailtext
-        val firstName = binding.root.firstnametext
-        val lastName = binding.root.lastnametext
 
-        binding.root.next.setOnClickListener {
+        val email = binding2.emailtext
+        val firstName = binding2.firstnametext
+        val lastName = binding2.lastnametext
 
-            if (isValidString(email.text.toString())) {
-                email.error = "Email is required"
-                email.hint = "Please enter a valid email"
-            } else {
-                val intent = Intent(this, Signup2::class.java)
-                intent.putExtra("email", email.text.toString())
-                startActivity(intent)
-            }
+        binding2.next.setOnClickListener {
+
+//            if (isValidString(email.text.toString())) {
+//                email.error = "Email is required"
+//                email.hint = "Please enter a valid email"
+//            } else {
+            val intent = Intent(this, Signup2::class.java)
+            intent.putExtra("email", email.text.toString())
+            startActivity(intent)
+//            }
         }
 
-        binding.root.backbutton.setOnClickListener {
+        binding2.backbutton.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
