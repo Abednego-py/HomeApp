@@ -49,41 +49,36 @@ class Signup2 : AppCompatActivity() {
         val emailText = intent.getStringExtra("email").toString()
         val password = binding.passwordText
 
-
-//        fun isValidPassword(password : String) : Boolean {
-//            val pattern: Pattern
-//            val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
-//            pattern = Pattern.compile(passwordPattern);
-//            val matcher: Matcher = pattern.matcher(password);
-//
-//            return matcher.matches();
-//        }
-        fun isValidPassword(password: String): Boolean {
-            if (password.length < 8) return false
-            if (password.filter { it.isDigit() }.firstOrNull() == null) return false
-            if (password.filter { it.isLetter() }.filter { it.isUpperCase() }.firstOrNull() == null) return false
-            if (password.filter { it.isLetter() }.filter { it.isLowerCase() }.firstOrNull() == null) return false
-            if (password.filter { !it.isLetterOrDigit() }.firstOrNull() == null) return false
-
-            return true
+        fun isEntryValid(entry: String): Boolean {
+            return entry.isEmpty()
         }
+//        fun isValidPassword(password: String): Boolean {
+//            if (password.length < 8) return false
+//            if (password.filter { it.isDigit() }.firstOrNull() == null) return false
+//            if (password.filter { it.isLetter() }.filter { it.isUpperCase() }.firstOrNull() == null) return false
+//            if (password.filter { it.isLetter() }.filter { it.isLowerCase() }.firstOrNull() == null) return false
+//            if (password.filter { !it.isLetterOrDigit() }.firstOrNull() == null) return false
+//
+//            return true
+//        }
 
         binding.button.setOnClickListener {
-//            if (isValidPassword(password.text.toString())) {
-//                password.error = "Password is required"
-//                password.hint = "The password must be at least 8 characters long and include a number, " +
-//                        "lowercase letter, uppercase letter and special character"
-//            } else {
-            auth.createUserWithEmailAndPassword(emailText, password.text.toString())
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "createUserWithEmail:success")
-                        val intent = Intent(this, LoginSuccessful::class.java)
-                        startActivity(intent)
-                        val user = auth.currentUser
+            if (isEntryValid(password.text.toString())) {
+                password.error = "Password is required"
+                password.hint =
+                    "The password must be at least 8 characters long and include a number, " +
+                            "lowercase letter, uppercase letter and special character"
+            } else {
+                auth.createUserWithEmailAndPassword(emailText, password.text.toString())
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success")
+                            val intent = Intent(this, LoginSuccessful::class.java)
+                            startActivity(intent)
+                            val user = auth.currentUser
 //                    updateUI(user)
-                    } else {
+                        } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)
                             Toast.makeText(
@@ -94,6 +89,7 @@ class Signup2 : AppCompatActivity() {
                         }
                     }
 //            }
+            }
         }
     }
 

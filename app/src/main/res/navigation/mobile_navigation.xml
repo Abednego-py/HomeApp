@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.homeapp.ui.ui.home.HomeFragment"
+        android:name="com.example.homeapp.ui.welcome.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -20,25 +20,25 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.homeapp.ui.ui.dashboard.DashboardFragment"
+        android:name="com.example.homeapp.ui.welcome.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.homeapp.ui.ui.notifications.NotificationsFragment"
+        android:name="com.example.homeapp.ui.welcome.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.homeapp.ui.ui.profile.Profile_Fragment"
+        android:name="com.example.homeapp.ui.welcome.profile.Profile_Fragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile_" />
 
     <fragment
         android:id="@+id/navigation_scroll"
-        android:name="com.example.homeapp.ui.ui.home.ScrollingFragment"
+        android:name="com.example.homeapp.ui.welcome.home.ScrollingFragment"
         android:label="Scrolling"
         tools:layout="@layout/fragment_scrolling">
         <action
@@ -47,12 +47,12 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment_3"
-        android:name="com.example.homeapp.ui.ui.HomeFragment_3"
+        android:name="com.example.homeapp.ui.welcome.HomeFragment_3"
         android:label="fragment_home_3"
         tools:layout="@layout/fragment_home_3">
 
-        <argument
-            android:name="homedata"
-            app:argType="com.example.homeapp.ui.ui.home.data.Home" />
+        <!--        <argument-->
+        <!--            android:name="homedata"-->
+        <!--            app:argType="com.example.homeapp.ui.ui.home.data.Home" />-->
     </fragment>
 </navigation>

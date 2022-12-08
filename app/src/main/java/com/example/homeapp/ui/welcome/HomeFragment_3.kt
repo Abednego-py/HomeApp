@@ -1,11 +1,10 @@
-package com.example.homeapp.ui.ui
+package com.example.homeapp.ui.welcome
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import com.example.homeapp.R
 import com.example.homeapp.databinding.FragmentHome3Binding
 import com.google.firebase.auth.ktx.auth
@@ -18,7 +17,7 @@ class HomeFragment_3 : Fragment() {
     private val binding get() = _binding!!
     val user = Firebase.auth.currentUser
 
-    private val args: HomeFragment_3Args by navArgs()
+//    private val args: HomeFragment_3Args by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,18 +26,6 @@ class HomeFragment_3 : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home_3, container, false)
 
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val imgdata = args.homedata
-        binding.imageView8.setImageResource(imgdata.imageResourceId)
-
-        val name = user?.displayName
-        val email = user?.email
-        val photourl = user?.photoUrl
-        binding.imageView9.setImageURI(photourl)
 
     }
 

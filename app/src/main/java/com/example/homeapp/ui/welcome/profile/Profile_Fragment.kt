@@ -1,4 +1,4 @@
-package com.example.homeapp.ui.ui.profile
+package com.example.homeapp.ui.welcome.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater

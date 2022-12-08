@@ -1,4 +1,4 @@
-package com.example.homeapp.ui.ui.home.data
+package com.example.homeapp.ui.welcome.home.data
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes

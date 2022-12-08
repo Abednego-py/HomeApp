@@ -1,4 +1,4 @@
-package com.example.homeapp.ui.login.homepage
+package com.example.homeapp.ui.homepage
 
 import android.content.Intent
 import android.os.Bundle

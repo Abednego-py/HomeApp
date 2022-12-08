@@ -4,125 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ui.home.HomeFragment">
+    tools:context=".ui.welcome.home.HomeFragment">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="133dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:text="@string/homeless"
-            android:textColor="#000"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="133dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:text="@string/homeless"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView2"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:backgroundTint="#fff"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.34">
+
+
+                <ImageView
+                    android:id="@+id/profile_pix"
+                    android:layout_width="61dp"
+                    android:layout_height="72dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/profile_headshot" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="58dp"
+            android:text="@string/lagos_nigeria"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/materialCardView2"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="25dp"
+            android:id="@+id/materialCardView3"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="35dp"
             android:backgroundTint="#fff"
             android:clickable="true"
             android:elevation="10dp"
             android:focusable="true"
             android:foregroundGravity="center_vertical|center_horizontal"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.34">
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
 
-
-            <ImageView
-                android:id="@+id/profile_pix"
-                android:layout_width="61dp"
-                android:layout_height="72dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/profile_headshot" />
         </com.google.android.material.card.MaterialCardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/lagos_nigeria"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyler_list"
+            android:layout_width="match_parent"
+            android:layout_height="463dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical"
+            android:textAlignment="center"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_home"
+            app:layout_constraintVertical_bias="1.0"
+            tools:listitem="@layout/scroll_item_layout" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView3"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="35dp"
-        android:backgroundTint="#fff"
-        android:clickable="true"
-        android:elevation="10dp"
-        android:focusable="true"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        <SearchView
+            android:id="@+id/search_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:iconifiedByDefault="false"
+            android:padding="4dp"
+            android:queryHint="Search for houses"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView10" />
 
-    </com.google.android.material.card.MaterialCardView>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyler_list"
-        android:layout_width="match_parent"
-        android:layout_height="504dp"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical"
-        android:textAlignment="center"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_home"
-        app:layout_constraintVertical_bias="1.0"
-        tools:listitem="@layout/scroll_item_layout" />
-
-    <SearchView
-        android:id="@+id/search_home"
-        android:layout_width="337dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="124dp"
-        android:iconifiedByDefault="false"
-        android:padding="4dp"
-        android:queryHint="Search for houses"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

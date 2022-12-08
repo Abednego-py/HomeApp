@@ -1,4 +1,4 @@
-package com.example.homeapp.ui.ui.home
+package com.example.homeapp.ui.welcome.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homeapp.R
-import com.example.homeapp.ui.ui.home.data.CellClickListener
-import com.example.homeapp.ui.ui.home.data.Home
+import com.example.homeapp.ui.welcome.home.data.CellClickListener
+import com.example.homeapp.ui.welcome.home.data.Home
 
-class HomeScrollAdapter(
+class HomeAdapter(
     private val dataSet: List<Home>,
     private val cellClickListener: CellClickListener
 ) :
-    RecyclerView.Adapter<HomeScrollAdapter.ViewHolder>() {
+    RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
@@ -32,7 +32,7 @@ class HomeScrollAdapter(
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.scroll_item_layout, viewGroup, false)
+            .inflate(R.layout.item_layout, viewGroup, false)
 
         return ViewHolder(view)
     }

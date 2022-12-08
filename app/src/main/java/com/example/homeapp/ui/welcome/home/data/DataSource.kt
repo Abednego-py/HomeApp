@@ -1,4 +1,4 @@
-package com.example.homeapp.ui.ui.home.data
+package com.example.homeapp.ui.welcome.home.data
 
 import com.example.homeapp.R
 
